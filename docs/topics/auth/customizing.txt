@@ -418,14 +418,16 @@ Specifying a custom User model
 
 .. admonition:: Model design considerations
 
-    Think carefully before handling information not directly related to
-    authentication in your custom User Model.
+    A point to think about in your design/decision is whether you need a custom
+    user model at all?
 
-    It may be better to store app-specific user information in a model
-    that has a relation with the User model. That allows each app to specify
-    its own user data requirements without risking conflicts with other
-    apps. On the other hand, queries to retrieve this related information
-    will involve a database join, which may have an effect on performance.
+    Before choosing to handle information not that is directly related to
+    authentication in your custom User Model, consider that it may be a
+    better choice to store app-specific user information in a model that has
+    a relation with the User model. This approach allows each app to specify
+    its own user data requirements without risking conflicts with other apps.
+    Keep in mind that queries to retrieve this related information will 
+    involve a database join, which may have an effect on performance.
 
 Django expects your custom User model to meet some minimum requirements.
 
